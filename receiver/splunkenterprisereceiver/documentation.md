@@ -279,6 +279,14 @@ Gauge tracking the average indexer typing queue ration (%). *Note:** Search is b
 | ---- | ----------- | ------ |
 | splunk.host | The name of the splunk host | Any Str |
 
+### splunkenterprisereceiver.error
+
+Records errors occurring within splunkenterprisereceiver.
+
+| Unit | Metric Type | Value Type | Aggregation Temporality | Monotonic |
+| ---- | ----------- | ---------- | ----------------------- | --------- |
+| {error} | Sum | Int | Cumulative | true |
+
 ## Optional Metrics
 
 The following metrics are not emitted by default. Each of them can be enabled by applying the following configuration:

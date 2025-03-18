@@ -68,6 +68,7 @@ type MetricsConfig struct {
 	SplunkServerSearchartifactsSavedsearches    MetricConfig `mapstructure:"splunk.server.searchartifacts.savedsearches"`
 	SplunkServerSearchartifactsScheduled        MetricConfig `mapstructure:"splunk.server.searchartifacts.scheduled"`
 	SplunkTypingQueueRatio                      MetricConfig `mapstructure:"splunk.typing.queue.ratio"`
+	SplunkenterprisereceiverError               MetricConfig `mapstructure:"splunkenterprisereceiver.error"`
 }
 
 func DefaultMetricsConfig() MetricsConfig {
@@ -193,6 +194,9 @@ func DefaultMetricsConfig() MetricsConfig {
 			Enabled: false,
 		},
 		SplunkTypingQueueRatio: MetricConfig{
+			Enabled: true,
+		},
+		SplunkenterprisereceiverError: MetricConfig{
 			Enabled: true,
 		},
 	}

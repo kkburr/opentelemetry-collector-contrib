@@ -359,6 +359,15 @@ metrics:
     gauge:
       value_type: int
     attributes: [splunk.feature, splunk.feature.health]
+  splunkenterprisereceiver.error:
+    description: Records errors occurring within splunkenterprisereceiver.
+    enabled: true
+    sum:
+      value_type: int
+      aggregation_temporality: cumulative
+      monotonic: true
+    unit: "{error}"
+    attributes: []
 
 tests:
   config:
