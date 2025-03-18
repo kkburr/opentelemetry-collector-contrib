@@ -102,6 +102,7 @@ go.opentelemetry.io/collector/extension/extensionauth/extensionauthtest v0.122.2
 go.opentelemetry.io/collector/extension/extensionauth/extensionauthtest v0.122.2-0.20250319144947-41a9ea7f7402/go.mod h1:MEO76DuDTM/6e8C5oB0du2ZGcBC+glYktwWOhxupzhQ=
 go.opentelemetry.io/collector/featuregate v1.28.2-0.20250319144947-41a9ea7f7402 h1:myljH56zRxUJskSre+Qq8BUDMZkn8rYmtisG5wVQJ/c=
 go.opentelemetry.io/collector/featuregate v1.28.2-0.20250319144947-41a9ea7f7402/go.mod h1:Y/KsHbvREENKvvN9RlpiWk/IGBK+CATBYzIIpU7nccc=
+
 go.opentelemetry.io/collector/pdata v1.28.2-0.20250319144947-41a9ea7f7402 h1:J8wF6DoU9t0cwWUnca1vtyom5FsaX/YUpFUDqDZgGis=
 go.opentelemetry.io/collector/pdata v1.28.2-0.20250319144947-41a9ea7f7402/go.mod h1:asKE8MD/4SOKz1mCrGdAz4VO2U2HUNg8A6094uK7pq0=
 go.opentelemetry.io/collector/pdata/pprofile v0.122.2-0.20250319144947-41a9ea7f7402 h1:e1Se11aatyJgkKwyUwlZihAW1RbYglaV7wav0qaxdss=
