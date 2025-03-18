@@ -126,7 +126,10 @@ func (s *splunkScraper) scrape(ctx context.Context) (pmetric.Metrics, error) {
 	wg.Wait()
 	close(errChan)
 	errs = <-errOut
-	return s.mb.Emit(), errs.Combine()
+	combinedErrs := errs.Combine()
+	errCount := combinedErrs.(scrapererror.PartialScrapeError).Failed
+	s.mb.RecordSplunkenterprisereceiverErrorDataPoint(now, int64(errCount))
+	return s.mb.Emit(), combinedErrs
 }
 
 // Each metric has its own scrape function associated with it

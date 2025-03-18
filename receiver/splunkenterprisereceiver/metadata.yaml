@@ -367,7 +367,6 @@ metrics:
       aggregation_temporality: cumulative
       monotonic: true
     unit: "{error}"
-    attributes: []
 
 tests:
   config:
