@@ -361,7 +361,7 @@ metrics:
     attributes: [splunk.feature, splunk.feature.health]
   splunkenterprisereceiver.error:
     description: Records errors occurring within splunkenterprisereceiver.
-    enabled: true
+    enabled: false
     sum:
       value_type: int
       aggregation_temporality: cumulative

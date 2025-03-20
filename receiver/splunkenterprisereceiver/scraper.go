@@ -127,8 +127,9 @@ func (s *splunkScraper) scrape(ctx context.Context) (pmetric.Metrics, error) {
 	close(errChan)
 	errs = <-errOut
 	combinedErrs := errs.Combine()
-	errCount := combinedErrs.(scrapererror.PartialScrapeError).Failed
-	s.mb.RecordSplunkenterprisereceiverErrorDataPoint(now, int64(errCount))
+	if combinedErrs != nil {
+		s.mb.RecordSplunkenterprisereceiverErrorDataPoint(now, 1)
+	}
 	return s.mb.Emit(), combinedErrs
 }
 

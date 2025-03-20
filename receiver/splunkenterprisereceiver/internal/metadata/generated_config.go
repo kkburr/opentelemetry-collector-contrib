@@ -197,7 +197,7 @@ func DefaultMetricsConfig() MetricsConfig {
 			Enabled: true,
 		},
 		SplunkenterprisereceiverError: MetricConfig{
-			Enabled: true,
+			Enabled: false,
 		},
 	}
 }

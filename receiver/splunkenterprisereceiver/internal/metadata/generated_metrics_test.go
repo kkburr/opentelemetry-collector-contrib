@@ -201,7 +201,6 @@ func TestMetricsBuilder(t *testing.T) {
 			allMetricsCount++
 			mb.RecordSplunkTypingQueueRatioDataPoint(ts, 1, "splunk.host-val")
 
-			defaultMetricsCount++
 			allMetricsCount++
 			mb.RecordSplunkenterprisereceiverErrorDataPoint(ts, 1)
 
