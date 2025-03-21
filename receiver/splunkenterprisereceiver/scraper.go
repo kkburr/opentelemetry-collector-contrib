@@ -78,6 +78,7 @@ func (s *splunkScraper) scrape(ctx context.Context) (pmetric.Metrics, error) {
 	errOut := make(chan *scrapererror.ScrapeErrors)
 	var errs *scrapererror.ScrapeErrors
 	now := pcommon.NewTimestampFromTime(time.Now())
+	s.settings.Logger.Error("Kaitlin testing here!")
 	metricScrapes := []func(context.Context, pcommon.Timestamp, chan error){
 		s.scrapeLicenseUsageByIndex,
 		s.scrapeIndexThroughput,
@@ -126,7 +127,11 @@ func (s *splunkScraper) scrape(ctx context.Context) (pmetric.Metrics, error) {
 	wg.Wait()
 	close(errChan)
 	errs = <-errOut
-	return s.mb.Emit(), errs.Combine()
+	combinedErrs := errs.Combine()
+	if combinedErrs != nil {
+		s.mb.RecordSplunkenterprisereceiverErrorDataPoint(now, 1)
+	}
+	return s.mb.Emit(), combinedErrs
 }
 
 // Each metric has its own scrape function associated with it

@@ -11,6 +11,7 @@ import (
 	"go.opentelemetry.io/collector/config/confighttp"
 	"go.opentelemetry.io/collector/config/configopaque"
 	"go.opentelemetry.io/collector/consumer"
+	"go.opentelemetry.io/collector/pdata/pcommon"
 	"go.opentelemetry.io/collector/receiver"
 	"go.opentelemetry.io/collector/scraper"
 	"go.opentelemetry.io/collector/scraper/scraperhelper"
@@ -66,6 +67,8 @@ func createMetricsReceiver(
 		splunkScraper.scrape,
 		scraper.WithStart(splunkScraper.start))
 	if err != nil {
+		now := pcommon.NewTimestampFromTime(time.Now())
+		splunkScraper.mb.RecordSplunkenterprisereceiverErrorDataPoint(now, 1)
 		return nil, err
 	}
 
